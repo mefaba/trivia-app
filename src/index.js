@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom";
+import GameProvider from './Context/GameContext';
 
 ReactDOM.render(
   <React.StrictMode>
+    <GameProvider>
     <Router>
     <App />
     </Router>
+    </GameProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
