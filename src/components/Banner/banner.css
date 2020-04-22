@@ -1,0 +1,8 @@
+.banner-container{
+    display: flex;
+    flex-direction: column;
+
+}
+.banner-container img{
+    width: 200px;
+}
