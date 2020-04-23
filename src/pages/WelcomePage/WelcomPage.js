@@ -16,7 +16,8 @@ const WelcomPage = (props) => {
 
     return (
         <div className="app-container">
-            <BannerUnit bannerImage={Image}>A TRIVIA GAME</BannerUnit> 
+            <BannerUnit bannerImage={Image}>A TRIVIA GAME</BannerUnit>
+            <Link to="/game"><button>Start Game</button></Link> 
         </div>
     )
 }

@@ -6,7 +6,6 @@ import { GameContext } from '../../Context/GameContext'
 import {Link} from "react-router-dom"
 /* const Entities = require('html-entities').XmlEntities;
 const he = new Entities(); */
-/* import ButtonUnit from '../../components/Button/ButtonUnit' */
 
 const GamePage = () => {
     const {gameQA, shuffleArray} = useContext(GameContext)
