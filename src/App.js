@@ -12,7 +12,7 @@ function App() {
   const {setGameQA} = useContext(GameContext)
 
   useEffect(()=>{
-      const mode="dev"
+      const mode="prod"
       if(mode==="dev"){
         setGameQA(data.results)
       }else{
