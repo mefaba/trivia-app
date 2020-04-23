@@ -3,7 +3,8 @@ import React, { useState } from "react";
 export const GameContext = React.createContext();
 
 const GameProvider = (props) => {
-	const [gameQA, setGameQA] = useState();
+    const [gameQA, setGameQA] = useState();
+    const [currentIndex,setCurrentIndex] = useState(0)
 
 	function shuffleArray(array) {
 		var currentIndex = array.length,
@@ -29,7 +30,9 @@ const GameProvider = (props) => {
 			value={{
 				gameQA,
 				setGameQA,
-				shuffleArray,
+                shuffleArray,
+                currentIndex,
+                setCurrentIndex
 			}}
 		>
 			{props.children}

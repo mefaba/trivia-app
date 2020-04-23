@@ -1,22 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import BannerUnit from '../../components/Banner/BannerUnit'
 import Image from "../../assets/images/default-image-min.jpg"
 import {Link} from "react-router-dom"
-import { fetchRawdata } from '../../api/Triva-Api'
+/* import { fetchRawdata } from '../../api/Triva-Api'
 import { GameContext } from '../../Context/GameContext'
-import { useEffect } from 'react';
+import { useEffect } from 'react'; */
 
 const WelcomPage = (props) => {
-    const {setGameQA} = useContext(GameContext)
-
-    useEffect(()=>{
-        const fetchAPI = async () => {
-            const {data} = await fetchRawdata()
-            setGameQA(data.results)
-            console.log("welcomepage",data.results)
-        }
-        fetchAPI()
-    },[setGameQA])
 
     /* const handleStart = async () => {
         const {data} = await fetchRawdata()
@@ -25,9 +15,11 @@ const WelcomPage = (props) => {
     } */
 
     return (
-        <div>
+        <div className="app-container">
             <BannerUnit bannerImage={Image}>A TRIVIA GAME</BannerUnit>
-            <Link to="/game"><button /* onClick={handleStart} */>Start Game</button></Link> 
+            <Link to="/game"><button>Start Game</button></Link> 
+            <Link to="/game"><button>Start Gamessss</button></Link> 
+            <Link to="/game"><button>Start Game</button></Link> 
         </div>
     )
 }

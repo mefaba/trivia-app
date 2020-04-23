@@ -3,16 +3,18 @@ import "./gamepage.css"
 import BannerUnit from '../../components/Banner/BannerUnit'
 import Image from "../../assets/images/default-image-min.jpg"
 import { GameContext } from '../../Context/GameContext'
-const Entities = require('html-entities').XmlEntities;
-const he = new Entities();
+import {Link} from "react-router-dom"
+/* const Entities = require('html-entities').XmlEntities;
+const he = new Entities(); */
 /* import ButtonUnit from '../../components/Button/ButtonUnit' */
 
 const GamePage = () => {
     const {gameQA, shuffleArray} = useContext(GameContext)
-    const [currentIndex, setCurrentIndex] = useState(0)
+    const {currentIndex, setCurrentIndex} = useContext(GameContext)
+    /* const [currentIndex, setCurrentIndex] = useState(0) */
     const [answerList, setAnswerList] = useState([])
     const [userAnswer, setUserAnswer] = useState(null)
-
+    const [isCompleted, setIsCompleted]= useState(false)
     useEffect(()=>{
         const shuffledlist = shuffleArray([gameQA[currentIndex].correct_answer,...gameQA[currentIndex].incorrect_answers])
         setAnswerList(shuffledlist)
@@ -31,7 +33,10 @@ const GamePage = () => {
 
     const handleNext = () =>{
         setUserAnswer(null)
-        if(currentIndex===9)
+        if(currentIndex===9){
+            setIsCompleted(true)
+            return
+        }
         setCurrentIndex(currentIndex+1)
         
         console.log(currentIndex)
@@ -42,24 +47,32 @@ const GamePage = () => {
     }
     if(userAnswer===true){
         return (
-            <>
+            <div className="app-container">
             <BannerUnit bannerImage={Image}>Correct Answer</BannerUnit>
             <button onClick={handleNext}>Next</button>
-            </>
+            </div>
         )
     }
     if(userAnswer===false){
         return (
-            <>
+            <div className="app-container">
             <BannerUnit bannerImage={Image}>Wrong Answer</BannerUnit>
             <button onClick={handleNext}>Next</button>
-            </>
+            </div>
         )
         
     }
+    if(isCompleted){
+        return (
+            <div className="app-container">
+            <BannerUnit bannerImage={Image}>Game is Completed</BannerUnit>
+            <Link to="/"><button>Back Home</button></Link> 
+            </div>
+        )
+    }
     return(
 
-        <div className="gamepage-container">
+        <div className="app-container">
 
             <BannerUnit bannerImage={Image}>{decodeURI(gameQA[currentIndex].question)}</BannerUnit>
             {
