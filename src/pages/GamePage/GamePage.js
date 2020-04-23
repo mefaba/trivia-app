@@ -34,6 +34,7 @@ const GamePage = () => {
         setUserAnswer(null)
         if(currentIndex===9){
             setIsCompleted(true)
+            setCurrentIndex(0)
             return
         }
         setCurrentIndex(currentIndex+1)
@@ -73,7 +74,7 @@ const GamePage = () => {
             <BannerUnit bannerImage={Image}>{he.decode(gameQA[currentIndex].question)}</BannerUnit>
             {
             answerList.map((x,index)=>{
-                return <button key={index} value={x} onClick={handleAnswer}>{x}</button>
+                return <button key={index} value={x} onClick={handleAnswer}>{he.decode(x)}</button>
             })
             }
      
