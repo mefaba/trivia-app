@@ -12,7 +12,7 @@ function App() {
   const {setGameQA} = useContext(GameContext)
 
   useEffect(()=>{
-      const mode="prod"
+      const mode="dev"
       if(mode==="dev"){
         setGameQA(data.results)
       }else{
@@ -26,7 +26,7 @@ function App() {
   },[setGameQA])
 
   return (
-    <div className="App">
+    <div className="app-container">
       <NavbarInformation/>
       <Switch>
         <Route exact path="/" component={WelcomPage} />

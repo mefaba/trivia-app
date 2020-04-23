@@ -14,6 +14,7 @@ const GamePage = () => {
     const [answerList, setAnswerList] = useState([])
     const [userAnswer, setUserAnswer] = useState(null)
     const [isCompleted, setIsCompleted]= useState(false)
+
     useEffect(()=>{
         const shuffledlist = shuffleArray([gameQA[currentIndex].correct_answer,...gameQA[currentIndex].incorrect_answers])
         setAnswerList(shuffledlist)
@@ -31,54 +32,54 @@ const GamePage = () => {
     }
 
     const handleNext = () =>{
-        setUserAnswer(null)
+        setUserAnswer(null) //clear state
+
         if(currentIndex===9){
             setIsCompleted(true)
             setCurrentIndex(0)
             return
+        }else{
+            setCurrentIndex(currentIndex+1)
         }
-        setCurrentIndex(currentIndex+1)
-        
-        console.log(currentIndex)
     }
-
+    //HANDLE TRUE ANSWER
     if(userAnswer===true){
         return (
-            <div className="app-container">
+            <div className="">
             <BannerUnit bannerImage={Image}>Correct Answer</BannerUnit>
             <button onClick={handleNext}>Next</button>
             </div>
         )
     }
+    //HANDLE WRONG ANSWER
     if(userAnswer===false){
         return (
-            <div className="app-container">
+            <div className="">
             <BannerUnit bannerImage={Image}>Wrong Answer</BannerUnit>
             <button onClick={handleNext}>Next</button>
             </div>
         )
-        
     }
+    //HANDLE GAME COMPLETED
     if(isCompleted){
         return (
-            <div className="app-container">
+            <div className="">
             <BannerUnit bannerImage={Image}>Game is Completed</BannerUnit>
             <Link to="/"><button>Back Home</button></Link> 
             </div>
         )
     }
+
+    //GAME Question/Answer
     return(
-
-        <div className="app-container">
-
+        <>
             <BannerUnit bannerImage={Image}>{he.decode(gameQA[currentIndex].question)}</BannerUnit>
             {
             answerList.map((x,index)=>{
                 return <button key={index} value={x} onClick={handleAnswer}>{he.decode(x)}</button>
             })
             }
-     
-        </div>
+        </>
     )
 }
 
