@@ -1,6 +1,8 @@
 "Need to fix
 
-Encoded questions.
+Navbar should shown only during game, or show it according to at welcome page.
+
+After game is completed, questions stays same.
 
 
 Improve*

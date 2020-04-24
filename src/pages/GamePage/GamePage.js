@@ -4,8 +4,10 @@ import BannerUnit from '../../components/Banner/BannerUnit'
 import Image from "../../assets/images/default-image-min.jpg"
 import { GameContext } from '../../Context/GameContext'
 import {Link} from "react-router-dom"
-const Entities = require('html-entities').XmlEntities;
-const he = new Entities();
+/* const entities = require("entities"); */
+import {decodeHTML} from "entities"
+/* const Entities = require('html-entities').XmlEntities;
+const he = new Entities(); */
 
 const GamePage = () => {
     const {gameQA, shuffleArray} = useContext(GameContext)
@@ -14,6 +16,8 @@ const GamePage = () => {
     const [answerList, setAnswerList] = useState([])
     const [userAnswer, setUserAnswer] = useState(null)
     const [isCompleted, setIsCompleted]= useState(false)
+
+    /* const currentGameQA = gameQA[currentIndex] */
 
     useEffect(()=>{
         const shuffledlist = shuffleArray([gameQA[currentIndex].correct_answer,...gameQA[currentIndex].incorrect_answers])
@@ -73,10 +77,10 @@ const GamePage = () => {
     //GAME Question/Answer
     return(
         <>
-            <BannerUnit bannerImage={Image}>{he.decode(gameQA[currentIndex].question)}</BannerUnit>
+            <BannerUnit bannerImage={Image}>{decodeHTML(gameQA[currentIndex].question)}</BannerUnit>
             {
             answerList.map((x,index)=>{
-                return <button key={index} value={x} onClick={handleAnswer}>{he.decode(x)}</button>
+                return <button key={index} value={x} onClick={handleAnswer}>{decodeHTML(x)}</button>
             })
             }
         </>
