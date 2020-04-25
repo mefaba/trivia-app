@@ -1,15 +1,16 @@
 "Need to fix
 
-Navbar should shown only during game, or show it according to at welcome page.
+Partly fixed: Navbar should shown only during game, or show it according to at welcome page.
 
 After game is completed, questions stays same.
 
+GamePage can be divided to components.
 
 Improve*
 
 Difficulty Selection
 
-Usage of Lottie Animation(https://github.com/chenqingspring/react-lottie - https://github.com/react-native-community/
+DONE//Usage of Lottie Animation(https://github.com/chenqingspring/react-lottie - https://github.com/react-native-community/
 lottie-react-native - https://lottiefiles.com/)
 
 Multiple category options on welcome page
@@ -21,4 +22,4 @@ page which states that time's up.
 
 Point system - User earns points with respect to remaining time.
 
-Host your web application's final version on Netlify or any other similar platform if you developed a React application.
+DONE//Host your web application's final version on Netlify or any other similar platform if you developed a React application.

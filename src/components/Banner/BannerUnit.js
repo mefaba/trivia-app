@@ -5,7 +5,7 @@ const BannerUnit = ({ children, bannerImage }) => {
 	return (
 		<div className="banner-container">
 			<div>
-				<img src={bannerImage} alt="banner-img" />
+				{bannerImage?(<img src={bannerImage} alt="banner-img" />):null}
 			</div>
 			<div className="hero-text">
 				<h1>{children}</h1>

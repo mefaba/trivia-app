@@ -3,8 +3,16 @@ import React, { useState } from "react";
 export const GameContext = React.createContext();
 
 const GameProvider = (props) => {
-    const [gameQA, setGameQA] = useState();
-    const [currentIndex,setCurrentIndex] = useState(0)
+    const [gameQA, setGameQA] = useState(); //Game Questions/Answers
+	const [currentIndex,setCurrentIndex] = useState(0)
+	const [gameState, setGameState] = useState({
+		started: null,
+		wrongAnswer: null,
+		correctAnswer: null,
+		gameOver: null
+	})
+
+	console.log("GameContext",gameState)
 
 	function shuffleArray(array) {
 		var currentIndex = array.length,
@@ -32,7 +40,9 @@ const GameProvider = (props) => {
 				setGameQA,
                 shuffleArray,
                 currentIndex,
-                setCurrentIndex
+				setCurrentIndex,
+				gameState,
+				setGameState
 			}}
 		>
 			{props.children}

@@ -6,6 +6,8 @@ import { GameContext } from '../../Context/GameContext'
 import {Link} from "react-router-dom"
 /* const entities = require("entities"); */
 import {decodeHTML} from "entities"
+import LottieCorrect from './../../components/LottieUnits/LottieCorrect';
+import LottieWrong from '../../components/LottieUnits/LottieWrong'
 /* const Entities = require('html-entities').XmlEntities;
 const he = new Entities(); */
 
@@ -50,7 +52,8 @@ const GamePage = () => {
     if(userAnswer===true){
         return (
             <div className="">
-            <BannerUnit bannerImage={Image}>Correct Answer</BannerUnit>
+            <LottieCorrect/>
+            <BannerUnit bannerImage="">Correct Answer</BannerUnit>
             <button onClick={handleNext}>Next</button>
             </div>
         )
@@ -59,7 +62,8 @@ const GamePage = () => {
     if(userAnswer===false){
         return (
             <div className="">
-            <BannerUnit bannerImage={Image}>Wrong Answer</BannerUnit>
+            <LottieWrong/>
+            <BannerUnit bannerImage="">Wrong Answer</BannerUnit>
             <button onClick={handleNext}>Next</button>
             </div>
         )
