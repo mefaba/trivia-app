@@ -14,7 +14,7 @@ const NavbarInformation = (props) => {
             :"ARE YOU READY?"
                 
             }
-        
+            
         </div>
         
     )

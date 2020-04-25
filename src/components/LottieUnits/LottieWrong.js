@@ -17,6 +17,6 @@ export default class LottieWrong extends React.Component {
       }
     };
 
-    return <Lottie options={defaultOptions} height={400} width={400} />
+    return <Lottie options={defaultOptions} height={200} width={200} />
   }
 }
