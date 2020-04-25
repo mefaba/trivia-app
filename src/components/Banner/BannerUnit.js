@@ -7,7 +7,7 @@ const BannerUnit = ({ children, bannerImage }) => {
 			<div>
 				{bannerImage?(<img src={bannerImage} alt="banner-img" />):null}
 			</div>
-			<div className="hero-text">
+			<div className="banner-text">
 				<h1>{children}</h1>
 			</div>
 		</div>
