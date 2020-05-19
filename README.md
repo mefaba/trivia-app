@@ -6,6 +6,8 @@ After game is completed, questions stays same.
 
 GamePage can be divided to components.
 
+Oyun tamamlandığında doğru puan sayısı.
+
 Improve*
 
 Difficulty Selection

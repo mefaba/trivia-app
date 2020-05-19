@@ -4,23 +4,21 @@ import BannerUnit from '../../components/Banner/BannerUnit'
 import Image from "../../assets/images/default-image-min.jpg"
 import { GameContext } from '../../Context/GameContext'
 import {Link} from "react-router-dom"
-/* const entities = require("entities"); */
+
 import {decodeHTML} from "entities"
 import LottieCorrect from './../../components/LottieUnits/LottieCorrect';
 import LottieWrong from '../../components/LottieUnits/LottieWrong'
-/* const Entities = require('html-entities').XmlEntities;
-const he = new Entities(); */
+
 
 const GamePage = () => {
     const {gameQA, shuffleArray} = useContext(GameContext)
     const {currentIndex, setCurrentIndex} = useContext(GameContext)
-    /* const [currentIndex, setCurrentIndex] = useState(0) */
+
     const [answerList, setAnswerList] = useState([])
     const [userAnswer, setUserAnswer] = useState(null)
     const [isCompleted, setIsCompleted]= useState(false)
 
-    /* const currentGameQA = gameQA[currentIndex] */
-
+    //GET DATA
     useEffect(()=>{
         const shuffledlist = shuffleArray([gameQA[currentIndex].correct_answer,...gameQA[currentIndex].incorrect_answers])
         setAnswerList(shuffledlist)
@@ -34,9 +32,9 @@ const GamePage = () => {
         }else{
             setUserAnswer(false)
         }
-        /* console.log("answerlist",answerList) */
     }
 
+    //HANDLE NEXT
     const handleNext = () =>{
         setUserAnswer(null) //clear state
 
